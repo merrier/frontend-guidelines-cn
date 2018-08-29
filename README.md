@@ -4,8 +4,8 @@
 
 ## 目录
 
-* [HTML](##HTML)
-    * [语义化](###语义化（Semantics）)
+* [HTML](#html)
+    * [语义化](#语义化semantics)
     * 简洁
     * 可读性
     * 语言设置
