@@ -40,7 +40,7 @@
     * [避免多层嵌套](#避免多层嵌套composition)
     * [缓存](#缓存caching)
     * [变量](#变量variables)
-    * [IIFE](#conditions)
+    * [IIFE](#iifeconditions)
     * [对象遍历](#对象遍历object-iteration)
     * [Map](#mapobjects-as-maps)
     * [科里化](#科里化curry)
