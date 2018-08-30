@@ -4,6 +4,8 @@
 
 ## 目录
 
+<details>
+<summary><b>点击展开</b></summary>
 * [HTML](#html)
     * [语义化](#语义化semantics)
     * [简洁](#简洁brevity)
@@ -47,6 +49,7 @@
     * [可读性](#可读性readability)
     * [代码复用](#代码复用code-reuse)
     * [最小化依赖](#最小化依赖dependencies)
+</details>
 
 ## HTML
 
