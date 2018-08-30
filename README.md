@@ -6,47 +6,47 @@
 
 * [HTML](#html)
     * [语义化](#语义化semantics)
-    * 简洁
-    * 可读性
-    * 语言设置
-    * 关注性能
-* CSS
-    * 分号
-    * 盒模型
-    * 流布局
-    * position属性
-    * 选择器
-    * 易覆盖
-    * 避免覆盖
-    * 继承
-    * 合并样式
-    * 语言
-    * 浏览器前缀
-    * 动画
-    * 单位
-    * 颜色
-    * 避免HTTP请求
-    * 慎用hack
-* JavaScript
-    * 性能
-    * 无状态
-    * 原生
-    * 类型转换
-    * 循环
-    * 慎用arguments
-    * 慎用apply
-    * 慎用bind
-    * 避免嵌套
-    * 避免多层嵌套
-    * 缓存
-    * 变量
-    * IIFE
-    * 对象遍历
-    * 多用Map
-    * 科里化
-    * 可读性
-    * 代码复用
-    * 最小化依赖
+    * [简洁](#简洁brevity)
+    * [可读性](#可读性accessibility)
+    * [语言](#语言language)
+    * [性能](#性能performance)
+* [CSS](#css)
+    * [分号](#分号semicolons)
+    * [盒模型](#盒模型box-model)
+    * [流布局](#流布局flow)
+    * [position属性](#position属性positioning)
+    * [选择器](#选择器selectors)
+    * [易覆盖](#易覆盖specificity)
+    * [避免覆盖](#避免覆盖overriding)
+    * [继承](#继承inheritance)
+    * [合并样式](#合并样式brevity)
+    * [语言](#语言language-1)
+    * [浏览器前缀](#浏览器前缀vendor-prefixes)
+    * [动画](#动画animations)
+    * [单位](#单位units)
+    * [颜色](#颜色colors)
+    * [避免HTTP请求](#避免http请求drawing)
+    * [慎用hack](#慎用hackhacks)
+* [JavaScript](#javascript)
+    * [性能](#性能performance-1)
+    * [无状态](#无状态statelessness)
+    * [原生](#原生natives)
+    * [类型转换](#类型转换coercion)
+    * [循环](#循环loops)
+    * [慎用arguments](#慎用argumentsarguments)
+    * [慎用apply](#慎用applyapply)
+    * [慎用bind](#慎用bindbind)
+    * [避免嵌套](#避免嵌套higher-order-functions)
+    * [避免多层嵌套](#避免多层嵌套composition)
+    * [缓存](#缓存caching)
+    * [变量](#变量variables)
+    * [IIFE](#conditions)
+    * [对象遍历](#对象遍历object-iteration)
+    * [Map](#mapobjects-as-maps)
+    * [科里化](#科里化curry)
+    * [可读性](#可读性readability)
+    * [代码复用](#代码复用code-reuse)
+    * [最小化依赖](#最小化依赖dependencies)
 
 ## HTML
 
@@ -96,7 +96,7 @@ HTML5为我们提供了大量的语义元素，旨在精确地描述内容。请
 </h1>
 ```
 
-### Brevity
+### 简洁（Brevity）
 
 保持代码简洁。忘掉你之前写XHTML时养成的习惯。
 
@@ -135,7 +135,7 @@ HTML5为我们提供了大量的语义元素，旨在精确地描述内容。请
 </html>
 ```
 
-### Accessibility
+### 可读性（Accessibility）
 
 可访问性应该提前考虑到。你不必为了改进你的网站而成为WCAG专家，你现在可以做一些小的优化，但是它们会带来显著的变化，比如：
 
@@ -152,7 +152,7 @@ HTML5为我们提供了大量的语义元素，旨在精确地描述内容。请
 <h1><img alt=Company src=logo.png></h1>
 ```
 
-### Language
+### 语言（Language）
 
 虽然语言和字符编码的设置是可选的，但建议始终在`HTML`中声明，即使它们已经在HTTP报头中指定了。同时，`UTF-8`比任何其他字符编码都要好。
 
@@ -169,7 +169,7 @@ HTML5为我们提供了大量的语义元素，旨在精确地描述内容。请
 </html>
 ```
 
-### Performance
+### 性能（Performance）
 
 如果没有必须在您的内容之前加载脚本的理由，千万不要阻塞页面的呈现。
 如果样式比较多（即样式文件比较大），就将那些需要最先使用的样式孤立出来并优先加载，而其他样式可以放在单独的文件中并延迟加载。
@@ -193,7 +193,7 @@ HTML5为我们提供了大量的语义元素，旨在精确地描述内容。请
 
 ## CSS
 
-### Semicolons
+### 分号（Semicolons）
 
 语法上讲，分号是CSS中的分隔符，所以总是把它当作终止符来使用（不要省略分号）。
 
@@ -209,7 +209,7 @@ div {
 }
 ```
 
-### Box model
+### 盒模型（Box model）
 
 盒子模型对于整个document应该是一致的。
 `* { box-sizing: border-box; }`无伤大雅，如果可以避免，最好不要更改个别元素的盒模型表现。
@@ -228,7 +228,7 @@ div {
 }
 ```
 
-### Flow
+### 流布局（Flow）
 
 如果可以避免，不要更改元素的默认行为。尽可能让元素保持在自然文档流中。例如，如果你只是想删除图片下面的空白，是不需要改变它的`diaplay`属性的：
 
@@ -261,11 +261,11 @@ div {
 }
 ```
 
-### Positioning
+### position属性（Positioning）
 
 在CSS中改变元素的定位有很多方法。推荐使用像`Flexbox`和`Grid`这样的现代布局规范，这样可以避免将元素从正常文档流中移除，例如`position: absolute`。
 
-### Selectors
+### 选择器（Selectors）
 
 简化选择器。当选择器中超过3个结构伪类、子类或兄弟组合时，就应该考虑向要匹配的元素添加类名来简化了。
 
@@ -291,7 +291,7 @@ img[src$=svg], ul > li:first-child {
 }
 ```
 
-### Specificity
+### 易覆盖（Specificity）
 
 不要让选择器难以被覆盖，所以尽量减少`id`和`!important`的使用。
 
@@ -313,7 +313,7 @@ img[src$=svg], ul > li:first-child {
 }
 ```
 
-### Overriding
+### 避免覆盖（Overriding）
 
 覆盖样式会使样式的调试变困难，同时可读性变差，应该尽量避免。
 
@@ -332,7 +332,7 @@ li + li {
 }
 ```
 
-### Inheritance
+### 继承（Inheritance）
 
 有些样式会自动继承，要合理利用这一特性来简化选择器。
 
@@ -348,7 +348,7 @@ div {
 }
 ```
 
-### Brevity
+### 合并样式（Brevity）
 
 保持代码简洁，尝试合并多个属性。
 
@@ -372,7 +372,7 @@ div {
 }
 ```
 
-### Language
+### 语言（Language）
 
 在表示旋转角度时，推荐使用英文的“圈数”（turn），会比角度（deg）更具语义化
 
@@ -388,7 +388,7 @@ div {
 }
 ```
 
-### Vendor prefixes
+### 浏览器前缀（Vendor prefixes）
 
 有些浏览器前缀已经过时了，不要继续使用了，而如果真的需要添加前缀，请插在标准属性之前。
 
@@ -413,7 +413,7 @@ div {
 }
 ```
 
-### Animations
+### 动画（Animations）
 
 有利于动画的过渡。避免动画比“不透明”和“变换”其他属性。
 
@@ -437,7 +437,7 @@ div:hover {
 }
 ```
 
-### Units
+### 单位（Units）
 
 尽可能使用纯数字来表示单位。如果使用相对的单位，推荐使用`rem`。秒要比毫秒更好。
 
@@ -459,7 +459,7 @@ div {
 }
 ```
 
-### Colors
+### 颜色（Colors）
 
 如果需要透明度，推荐使用`rgba`。否则，总是使用十六进制格式来表示颜色。
 
@@ -475,7 +475,7 @@ div {
 }
 ```
 
-### Drawing
+### 避免HTTP请求（Drawing）
 
 如果可以用CSS实现某个效果时，避免使用图片，这样可以避免不必要的HTTP请求。
 
@@ -496,7 +496,7 @@ div::before {
 }
 ```
 
-### Hacks
+### 慎用hack（Hacks）
 
 慎用Hack。
 
@@ -516,7 +516,7 @@ div {
 
 ## JavaScript
 
-### Performance
+### 性能（Performance）
 
 对可读性、正确性和表现性的要求会高于性能。JavaScript这门语言本身永远不会成为你的性能瓶颈。一些像图片压缩、减少HTTP请求和避免DOM重绘之类的优化方式会对性能产生很大的影响。
 
@@ -540,7 +540,7 @@ const square = n => n * n;
 const result = arr.filter(isEven).map(square);
 ```
 
-### Statelessness
+### 无状态（Statelessness）
 
 尽量保持你的函数纯净。理想情况下，所有的函数都应该不产生副作用，不使用外部数据，并返回新的对象，而不改变现有的对象。
 
@@ -554,7 +554,7 @@ const merge = (...sources) => Object.assign({}, ...sources);
 merge({ foo: "foo" }, { bar: "bar" }); // => { foo: "foo", bar: "bar" }
 ```
 
-### Natives
+### 原生（Natives）
 
 尽可能地用原生提供的方法
 
@@ -568,7 +568,7 @@ const toArray = (() =>
 )();
 ```
 
-### Coercion
+### 类型转换（Coercion）
 
 有时候隐式类型转换会带来方便，所以不用刻意追求`===`。
 
@@ -580,7 +580,7 @@ if (x === undefined || x === null) { ... }
 if (x == undefined) { ... }
 ```
 
-### Loops
+### 循环（Loops）
 
 不要使用循环，因为它们会强迫你使用可变对象。推荐使用`array.prototype`原型方法。
 
@@ -633,7 +633,7 @@ createDivs(5);
 
 这里有一个[泛型循环函数示例](https://gist.github.com/bendc/6cb2db4a44ec30208e86)，它可以让递归变得更容易使用。
 
-### Arguments
+### 慎用argument（Arguments）
 
 忘掉`arguments`对象。REST参数总是更好的选择，因为：
 
@@ -649,7 +649,7 @@ const sortNumbers = () =>
 const sortNumbers = (...numbers) => numbers.sort();
 ```
 
-### Apply
+### 慎用apply（Apply）
 
 避免使用`apply()`，推荐使用扩展运算符。
 
@@ -664,7 +664,7 @@ greet.apply(null, person);
 greet(...person);
 ```
 
-### Bind
+### 慎用bind（Bind）
 
 避免使用`bind()`。
 
@@ -699,7 +699,7 @@ const person = {
 }
 ```
 
-### Higher-order functions
+### 避免嵌套（Higher-order functions）
 
 避免函数嵌套。
 
@@ -711,7 +711,7 @@ const person = {
 [1, 2, 3].map(String);
 ```
 
-### Composition
+### 避免多层嵌套（Composition）
 
 避免多个函数嵌套调用。
 
@@ -730,9 +730,9 @@ const addThenMult = pipeline(plus1, mult2);
 addThenMult(5); // => 12
 ```
 
-### Caching
+### 缓存（Caching）
 
-对比较大的数据结构和昂贵的操作进行缓存。
+对比较大的数据结构和影响性能的操作进行缓存。
 
 ```javascript
 // bad
@@ -751,7 +751,7 @@ const contains = (() =>
 contains(["foo", "bar"], "baz"); // => false
 ```
 
-### Variables
+### 变量（Variables）
 
 在变量声明的使用上，`const` > `let` > `var`。
 
@@ -765,7 +765,7 @@ const me = new Map();
 me.set("name", "Ben").set("country", "Belgium");
 ```
 
-### Conditions
+### IIFE（Conditions）
 
 推荐使用立即执行函数（IIFE），`return`语句要优于`if`、`else if`、`else`和`switch`语句。
 
@@ -789,7 +789,7 @@ const grade = (() => {
 })();
 ```
 
-### Object iteration
+### 对象遍历（Object iteration）
 
 避免使用`for...in`。
 
@@ -812,7 +812,7 @@ for (var prop in obj) {
 Object.keys(obj).forEach(prop => console.log(prop));
 ```
 
-### Objects as Maps
+### Map（Objects as Maps）
 
 虽然大家已经非常习惯使用`Object`，但是`Map`通常是更好的选择。当你不知道哪个更好时，使用`Map`吧。
 
@@ -837,7 +837,7 @@ me.set("country", "Belgium");
 me.size; // => 3
 ```
 
-### Curry
+### 科里化（Curry）
 
 对于许多开发者来说，科里化是一个很强大但是比较陌生的概念，所以不要滥用它。
 
@@ -851,7 +851,7 @@ const sum = (a, b) => a + b;
 sum(5, 3); // => 8
 ```
 
-### Readability
+### 可读性（Readability）
 
 不要用看似聪明的技巧来降低代码的可读性。
 
@@ -877,7 +877,7 @@ const n = ~~3.14;
 const n = Math.floor(3.14);
 ```
 
-### Code reuse
+### 代码复用（Code reuse）
 
 不要害怕创建很多小的、高度可组合的和可重用的函数。
 
@@ -900,7 +900,7 @@ const product = (a, b) => a * b;
 const triple = product.bind(null, 3);
 ```
 
-### Dependencies
+### 最小化依赖（Dependencies）
 
 最小化依赖。你很难知道第三方代码的具体实现逻辑。所以如果你只需要某个库中的有限方法，不要引入整个库。
 
